@@ -14,7 +14,7 @@
 			<artifactId>atcrowdfunding03-admin-component</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<!-- spring 整合junit -->
+		<!-- spring 整合junit测试 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
