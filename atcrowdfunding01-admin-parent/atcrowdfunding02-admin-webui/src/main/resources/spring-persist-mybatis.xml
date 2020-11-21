@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+	<!-- 引入外部配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+	</bean>
+
+	<!-- 配置SQLSessionFactoryBean整合Mybatis -->
+	<!-- 1、配置SQLSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 1.2、指定数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 1.3、指定mybatis全局配置文件 -->
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+		<!-- 1.4、指定 mapper / dao存放的位置,扫描所有的，所以需要 * 扫描 -->
+		<property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"></property>
+		<!-- 配置插件 -->
+		<property name="plugins">
+			<!-- 数组注入bean -->
+			<array>
+				<!-- 注入PageHelper的Bean -->
+				<bean class="com.github.pagehelper.PageHelper">
+					<!-- 配置属性 -->
+					<property name="properties">
+						<!-- 对各个属性实际配置 -->
+						<props>
+							<!-- 数据库方言 -->
+							<prop key="dialect">mysql</prop>
+							<!-- 页码合理化 -->
+							<prop key="reasonable">true</prop>
+						</props>
+					</property>
+				</bean>
+			</array>
+		</property>
+	</bean>
+	<!-- 2、配置扫描器 ，扫描mapper/dao所在的包-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage"  value="com.wzf.crowd.mapper"></property>
+	</bean>
+	
+</beans>
