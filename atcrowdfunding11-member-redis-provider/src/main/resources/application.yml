@@ -2,7 +2,7 @@ server:
   port: 3000
 spring:
   redis:
-    host: 192.168.124.23
+    host: 8.210.51.159
   application:
     name: wzf-crowd-redis
 eureka:

@@ -11,3 +11,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:1000/eureka
+short:
+  message:
+    host: https://smssend.shumaidata.com
+    path: /sms/send
+    method: POST
+    appcode: 33799400e7f64d9f9b8a85fd07eb3f05
+    template-id: M09DD535F4

@@ -7,20 +7,22 @@ package com.wzf.crowd.util;
  */
 public class ResultEntity<T> {
 	//请求成功的常量
-	private static final String SUCCESS ="SUCCESS";
+	public static final String SUCCESS ="SUCCESS";
 	//请求失败的常量
-	private static final String ERROR = "ERROR";
+	public static final String ERROR = "ERROR";
 	
 	//返回信息没信息时
-	private static final String NO_MESSAGE = "NO_MESSAGE";
+	public static final String NO_MESSAGE = "NO_MESSAGE";
 	//返回信息没数据时
-	private static final String NO_RESULTDATA = "NO_RESULTDATA";
+	public static final String NO_RESULTDATA = "NO_RESULTDATA";
+	
 	//请求的响应结果
 	private String result;
 	//请求的响应信息
 	private String message;
 	//请求返回的数据
 	private T data;
+	
 	public String getResult() {
 		return result;
 	}
