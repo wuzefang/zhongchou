@@ -3,6 +3,11 @@ server:
 spring:
   application:
     name: wzf-crowd-zuul
+  session:
+    store-type: redis
+  redis:
+    host: 8.210.51.159
+    port: 6379
 eureka:
   client:
     service-url:
@@ -14,3 +19,8 @@ zuul:
     crowd-portal:
       service-id: wzf-crowd-auth
       path: /** # 这里一定要使用两个“*”号，不然“/”路径后面的多层路径将无法访问      
+
+ribbon:
+  ReadTimeout: 120000  #请求处理的超时时间
+  ConnectTimeout: 30000  #请求连接的超时时间
+      

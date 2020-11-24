@@ -35,7 +35,7 @@ public class RedisHandler {
 	@RequestMapping("/set/redis/value/remote/with/timeout")
 	ResultEntity<String> setRedisValueRemoteWithTimeout(@RequestParam("key") String key,
 			@RequestParam("value") String value, @RequestParam("time") long time,
-			@RequestParam("timrUnit") TimeUnit timeUnit) {
+			@RequestParam("timeUnit") TimeUnit timeUnit) {
 		try {
 			ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
 

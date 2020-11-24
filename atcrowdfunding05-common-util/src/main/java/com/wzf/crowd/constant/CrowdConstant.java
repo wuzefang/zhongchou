@@ -29,4 +29,6 @@ public class CrowdConstant {
 	
 	public static final String MESSAGE_CODE_NOT_INVALID = "验证码不正确！";
 
+	public static final String ATTR_NAME_LOGIN_MEMBER = "loginMember";
+
 }

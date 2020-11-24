@@ -30,7 +30,10 @@ public class MemberServiceImpl implements MemberService {
 		criteria.andLoginacctEqualTo(loginacct);
 		// 查询出集合
 		List<MemberPO> memberPOList = memberPOMapper.selectByExample(example);
-
+		
+		if (memberPOList == null || memberPOList.size() == 0) {
+			return null; 
+		}
 		return memberPOList.get(0);
 	}
 	@Transactional(propagation = Propagation.REQUIRES_NEW , rollbackFor = Exception.class,readOnly = false)

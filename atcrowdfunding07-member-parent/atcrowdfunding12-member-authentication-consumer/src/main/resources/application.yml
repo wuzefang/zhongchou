@@ -7,6 +7,11 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     cache: false 
+  redis:
+    host: 8.210.51.159
+    port: 6379
+  session:
+    store-type: redis
 eureka:
   client:
     service-url:
@@ -18,3 +23,7 @@ short:
     method: POST
     appcode: 33799400e7f64d9f9b8a85fd07eb3f05
     template-id: M09DD535F4
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+    
