@@ -1,0 +1,25 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: wzf-crowd-project
+  session:
+    store-type: redis
+  redis:
+    host: 8.210.51.159
+    port: 6379
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka/
+aliyun: 
+  oss: 
+    access-key-id: LTAI4G6svkP8JHkCPGLdMboo
+    access-key-secret: erejlHkcMrUhrhtRuY9RUQ5XOnXcii
+    bucket-domain: http://wuzefang1124.oss-cn-hangzhou.aliyuncs.com
+    bucket-name: wuzefang1124
+    end-point: http://oss-cn-hangzhou.aliyuncs.com
