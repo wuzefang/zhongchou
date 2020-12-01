@@ -2,6 +2,8 @@ package com.wzf.crowd.mapper;
 
 import com.wzf.crowd.entity.po.ReturnPO;
 import com.wzf.crowd.entity.po.ReturnPOExample;
+
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +29,6 @@ public interface ReturnPOMapper {
     int updateByPrimaryKeySelective(ReturnPO record);
 
     int updateByPrimaryKey(ReturnPO record);
+
+	void insertReturnPOBatch(@Param("returnPOList") ArrayList<ReturnPO> returnPOList,@Param("projectId") Integer projectId);
 }

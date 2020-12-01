@@ -107,6 +107,39 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <!-- 	void insertReturnPOBatch(@Param("returnPOList") ArrayList<ReturnPO> returnPOList,@Param("projectId") Integer projectId); -->
+  <insert id="insertReturnPOBatch">
+  	insert into t_return ( 
+  		projectid, 
+  		type, 
+      	supportmoney, 
+        content,
+        count, 
+      	signalpurchase, 
+      	purchase, 
+      	freight, 
+      	invoice, 
+      	returndate, 
+      	describ_pic_path
+      )values
+	      <foreach collection="returnPOList" item="returnPO" separator=",">
+	      (
+	      	#{projectId},
+	      	#{returnPO.type},
+	      	#{returnPO.supportmoney},
+	      	#{returnPO.content},
+	      	#{returnPO.count},
+	      	#{returnPO.signalpurchase},
+	      	#{returnPO.purchase},
+	      	#{returnPO.freight},
+	      	#{returnPO.invoice},
+	      	#{returnPO.returndate},
+	      	#{returnPO.describPicPath}
+	      	)
+	      </foreach>
+  </insert>
+  
+  
   <insert id="insert" parameterType="com.wzf.crowd.entity.po.ReturnPO" >
     insert into t_return (id, projectid, type, 
       supportmoney, content, count, 

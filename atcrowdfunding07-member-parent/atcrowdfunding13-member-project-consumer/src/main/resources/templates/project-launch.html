@@ -58,33 +58,9 @@
 	border: 1px #f60 solid;
 }
 
-#typeList
-
- 
-
-:not
-
- 
-
-(
-:first-child
-
- 
-
-)
+#typeList:not(:first-child)
 {
-margin-top
-
-
-:
-
- 
-
-20
-px
-
-
-;
+margin-top: 20px;
 }
 .label-txt {
 	margin: 10px 10px;
@@ -165,10 +141,9 @@ px
 		<div class="container">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<form id="projectForm"
-						th:action="@{/project/create/project/information}" method="post"
+					<form id="projectForm" th:action="@{/project/create/project/information}" method="post"
 						enctype="multipart/form-data" class="form-horizontal">
-						<p th:text="${messages}"></p>
+						<p th:text="${messages}">接收异常信息</p>
 						<div class="panel panel-default">
 							<div class="panel-heading" style="text-align: center;">
 								<div class="container-fluid">

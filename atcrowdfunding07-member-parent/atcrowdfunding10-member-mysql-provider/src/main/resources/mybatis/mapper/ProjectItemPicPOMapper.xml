@@ -97,6 +97,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  <!-- void insertPathList( @Param("detailPicturePathList") List<String> detailPicturePathList,@Param("projectId") Integer projectId); -->
+  <insert id="insertPathList">
+  	insert into `t_project_item_pic` (`projectid`,`item_pic_path`) values
+  	<foreach collection="detailPicturePathList" item="detailPicturePath" separator=",">
+  		(#{projectId},#{detailPicturePath})
+  	</foreach>
+  </insert>
+  
   <insert id="insert" parameterType="com.wzf.crowd.entity.po.ProjectItemPicPO" >
     insert into t_project_item_pic (id, projectid, item_pic_path
       )
